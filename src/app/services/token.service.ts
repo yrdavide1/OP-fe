@@ -7,7 +7,7 @@ import { Token } from "../models/token";
     providedIn: 'root'
 })
 export class TokenService{
-    private baseTokenUrl = "http://localhost:4200/api/token";
+    private baseTokenUrl = "http://173.249.39.182/api/token";
 
     constructor(private http: HttpClient){ }
 
