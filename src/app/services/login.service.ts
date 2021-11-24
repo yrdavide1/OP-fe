@@ -7,7 +7,7 @@ import { User } from "../models/user";
     providedIn: 'root'
 })
 export class LoginService{
-    private userLoginUrl = "http://localhost:4200/api/user/login?"; //add username and password as query params
+    private userLoginUrl = "http://173.249.39.182/api/user/login?"; //add username and password as query params
 
     constructor(private http: HttpClient){ }
 
