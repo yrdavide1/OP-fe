@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
 
     this.loginService.userSignIn(username, password).subscribe({
       next: async data => {
-        console.log(data);
+        console.log(<User>data);
         this.retrieveSessionToken(data.tokenId);
         this.router.navigate(['welcome']);
       }, 
@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
   retrieveSessionToken(id: number): void{
     this.tokenService.getTokenById(id).subscribe({
         next: data => {
-          console.log(data);
+          console.log(<Token>data);
           localStorage.setItem('sessionToken', data.sessionToken);
         },
         error: err => {
