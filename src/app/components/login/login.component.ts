@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { User } from 'src/app/models/user';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -8,22 +8,40 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-    public loginForm: FormGroup | any;
 
   constructor(
-      private formBuilder: FormBuilder,
       private loginService: LoginService
-  ) { }
+  ) {  
+    document.addEventListener('keypress', (e) => {
+      if(e.key === 'Enter'){
+        let btn = <HTMLInputElement>(document.getElementById('submitLogin'));
+        btn.click();
+      }
+    });
+  }
 
   ngOnInit(): void {
-      this.loginForm = this.formBuilder.group({
-        username: ['', Validators.required],
-        password: ['', Validators.required]
-      });
   }
 
   userLogin(){
-      alert("ye");
+    let username = (<HTMLInputElement>document.getElementById('usernameInput')).value;
+    let password = (<HTMLInputElement>document.getElementById('passwordInput')).value;
+
+    if(!username || !password) {
+      alert("Both fields must be filled!");
+      username = "";
+      password = "";
+      return;
+    }
+
+    //console.log(`${username}\n${password}`);
+
+    this.loginService.userSignIn(username, password).subscribe({
+      next: data => {
+        let u: User = data;
+        alert(JSON.stringify(u));
+      }
+    });
   }
 
 }
