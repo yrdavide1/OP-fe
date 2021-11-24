@@ -12,4 +12,6 @@ export class User extends Person{
     closet: any;
     ticket: any;
     reports: any;
+    token: any;
+    tokenId: number = 0;
 }
