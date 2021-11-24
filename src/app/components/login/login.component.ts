@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { LoginService } from 'src/app/services/login.service';
 
@@ -10,7 +11,8 @@ import { LoginService } from 'src/app/services/login.service';
 export class LoginComponent implements OnInit {
 
   constructor(
-      private loginService: LoginService
+      private loginService: LoginService,
+      private router: Router
   ) {  
     document.addEventListener('keypress', (e) => {
       if(e.key === 'Enter'){
@@ -38,8 +40,11 @@ export class LoginComponent implements OnInit {
 
     this.loginService.userSignIn(username, password).subscribe({
       next: data => {
-        let u: User = data;
-        alert(JSON.stringify(u));
+        console.log(data);
+        this.router.navigate(['welcome']);
+      }, 
+      error: err => {
+        alert(err);
       }
     });
   }
