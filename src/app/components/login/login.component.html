@@ -1,7 +1,7 @@
 <div class="body">
     <h1 class="title">OP-fe</h1>
     <mat-card class="form-container">
-        <mat-card-title style="color: black">Login</mat-card-title>
+        <mat-card-title style="color: black; text-align: center;">Login</mat-card-title>
         <mat-card-content>
             <mat-form-field>
                 <mat-label style="color: black">Username</mat-label>
@@ -13,8 +13,10 @@
                 <input matInput type="password" style="color: black" id="passwordInput"> 
             </mat-form-field>
         </mat-card-content>
-        <mat-card-actions style="margin-left: 29%; margin-right: 1rem;">
+        <mat-card-actions>
             <button mat-raised-button color="primary" style="color: white" id="submitLogin" (click)="userLogin()">Login</button>
+            <span class="spacer"></span>
+            <button mat-raised-button color="accent" style="color: white" id="submitRegister" routerLink="/register">Register</button>
         </mat-card-actions>
     </mat-card>
 </div>

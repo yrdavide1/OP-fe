@@ -17,34 +17,28 @@
     width: 100vw;
     height: 100vh;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    flex-direction: column;
 
-    .title{
+    .title-container{
+        margin-top: 3%;
+        background-color: white;
+        width: 15%;
 
-        font-size: xx-large;
-        color: white;
+        mat-card-title{
+            color: black;
+            text-align: center;
+        }
     }
 
     .form-container{
-   
-        color: white;
-        height: 33%;
-        flex: 0 1 30%;
+        width: 33%;
 
-        mat-card-actions{
+        mat-card-content{
 
-            display: flex;
-
-            button{
-                margin: 5%;
-            }
-
-            .spacer{
-                flex: 1 1 auto;
+            mat-form-field{
+                
             }
         }
     }
 }
-

@@ -9,12 +9,14 @@ import { MaterialModule } from './sub-modules/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthGuardService } from './services/authguard.service';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
