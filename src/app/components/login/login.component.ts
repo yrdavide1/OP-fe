@@ -55,16 +55,7 @@ export class LoginComponent implements OnInit {
   }
 
   retrieveSessionToken(id: number): void{
-    this.tokenService.getTokenById(id).subscribe({
-        next: data => {
-          console.log(<Token>data);
-          localStorage.setItem('sessionToken', data.sessionToken);
-        },
-        error: err => {
-          alert("Error! Check console for more info about it");
-          console.log(err);
-        }
-    });
+    this.tokenService.getTokenById(id);
   }
 
 }

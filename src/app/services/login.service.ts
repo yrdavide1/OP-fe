@@ -15,4 +15,9 @@ export class LoginService{
     userSignIn(username: string, password: string): Observable<User>{
         return this.http.post<User>(`${this.userLoginUrl}?username=${username}&password=${password}`, {});
     }
+
+    isLogged(): boolean {
+        let token = localStorage.getItem('sessionToken');
+        return token ? true : false;
+    }
 }
